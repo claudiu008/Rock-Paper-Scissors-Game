@@ -73,3 +73,45 @@ function updateScoreElement() {
     Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}
   `;
 }
+
+let isPlaying = false;
+let intervalID;
+
+function autoPlay() {
+  if (!isPlaying) {
+    isPlaying = true;
+    intervalID = setInterval(() => {
+      const playerMove = pickComputerMove();
+      makeMove(playerMove);
+    }, 1000);
+
+    document.querySelector(".js-auto-play-button").innerHTML = "Stop Play";
+  } else {
+    isPlaying = false;
+    clearInterval(intervalID);
+
+    document.querySelector(".js-auto-play-button").innerHTML = "Auto Play";
+  }
+}
+
+document.querySelector(".js-rock-button").addEventListener("click", () => {
+  makeMove("rock");
+});
+
+document.querySelector(".js-paper-button").addEventListener("click", () => {
+  makeMove("paper");
+});
+
+document.querySelector(".js-scissors-button").addEventListener("click", () => {
+  makeMove("scissors");
+});
+
+document.body.addEventListener("keydown", (event) => {
+  if (event.key === "a") {
+    makeMove("rock");
+  } else if (event.key === "s") {
+    makeMove("paper");
+  } else if (event.key === "d") {
+    makeMove("scissors");
+  }
+});

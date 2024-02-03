@@ -9,13 +9,13 @@
 
   <body>
     <p class="title">Rock Paper Scissors</p>
-    <button onclick="makeMove('rock')" class="move-button">
+    <button class="move-button js-rock-button">
       <img class="move-icon" src="./images/rock-emoji.png" />
     </button>
-    <button onclick="makeMove('paper')" class="move-button">
+    <button class="move-button js-paper-button">
       <img class="move-icon" src="./images/paper-emoji.png" />
     </button>
-    <button onclick="makeMove('scissors')" class="move-button">
+    <button class="move-button js-scissors-button">
       <img class="move-icon" src="./images/scissors-emoji.png" />
     </button>
     <p class="result js-result"></p>
@@ -27,6 +27,9 @@
       updateScoreElement()"
     >
       Reset Score
+    </button>
+    <button class="auto-play-button js-auto-play-button" onclick="autoPlay()">
+      Auto Play
     </button>
 
     <script src="rock-paper-scissors.js"></script>
